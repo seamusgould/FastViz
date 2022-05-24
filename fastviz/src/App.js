@@ -1,22 +1,19 @@
-// Make a web app that
-// Allows users to submit a query
-// Aggregates the headlines of the query
-// Analyzes the sentiment of the aggregated headlines
-// Displays the sentiment score over time as a graph
-// My api key 9a57a3e23ea54d259e5998d92b1da811
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ResponsiveContainer , Line} from 'recharts';
 import React, {useState, useEffect, PureComponent} from 'react';
 import moment from 'moment';
 
+import './button.css';
 import './App.css';
 import Sentiment from 'sentiment';
 import axios from "axios";
 const sentiment = new Sentiment();
 
+
+
 function App() {
 console.log("The app is running");
+
 const [headlines, setHeadlines] = useState([]);
-const [sentimentScore, setSentimentScore] = useState(null);
 const [phrase, setPhrase] = useState("");
 const [data, setData] = useState([]);
 
@@ -52,41 +49,40 @@ if (phrase !== "") {
     
     // Convert dates, sentiments, and titles to to json object like this:
     // [{date: "2020-01-01", sentiment: 1, title: "title1"}, {date: "2020-01-02", sentiment: -1, title: "title2"}]
+        
     var data = [];
+
     for (let i = 0; i < dates.length; i++) {
       data.push({date: dates[i], sentiment: sentiments[i], title: titles[i]});
     };
 
     data.forEach(d => {
       d.date = moment(d.date).valueOf();
-      console.log("The parsed date is: ", d.date);
     })
 
 
     data.sort(function(a, b){
       return a.date - b.date;
     });
-    console.log("The dates is: ", data.dates);
-    console.log("The data is now: ", data);
+
     setData(data);
     };
 
   // render a scatter plot of the sentiment score over time labeled by the title of the article
-
+  // Add a moving average line to the plot.
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Sentiment Analysis</h1>
+        <h1>Sentiment Analysis of Headlines</h1>
         <input value={phrase} onChange={(e) => setPhrase(e.target.value)}
         style = {{padding: "20px", fontSize: "20px", width: "90%"} }
         />
+        <h5> Submit a query, and the visualization below will show the frequency and polarity of media coverage sorrounding the topic.</h5>
+        <h5> In this case, the lower the number, the more negative coverage, and the higher the number, the more favorable. </h5>
         </header>
-        <button onClick={clickMe} >
-          Submit
-        </button>
+        <button class="bn30" onClick={clickMe}>Search</button>
         <div>
-          <h5> {phrase} </h5>
-          {/* Check if data is present.  If the data is present, graph */}
+          <h5> Results for {phrase} </h5>
           {console.log("The data is: ", data.length)}
           {data.length > 0 ? (
             <ResponsiveContainer width="100%" height={500}>
@@ -97,12 +93,11 @@ if (phrase !== "") {
                 tickFormatter={(tick) => moment(tick).format("YYYY/MM/DD")}/>
                 <YAxis type="number" dataKey="sentiment" name="sentiment" unit=".0" />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="sentiment" data={data} fill="#8884d8" />
-                <LabelList dataKey="title" position="top" />
+                <Scatter name="sentiment" data={data} fill="#8884d8"/>
               </ScatterChart>
             </ResponsiveContainer>
           ) : (
-              <h3>No data to display</h3>
+              <h3>This query is not recognized.</h3>
             )}
         </div>
       </div>
