@@ -22,7 +22,7 @@ const clickMe = function () {
   setPhrase(phrase);
 if (phrase !== "") {
   var getArticles = async() => {
-  var res = await axios.get(`https://newsapi.org/v2/everything?q=${phrase}&pageSize=100&sortBy=relevancy&apiKey=5e0bbb0fb11c40c0b5b4fe1ceace49f6`);
+  var res = await axios.get(`https://newsapi.org/v2/everything?q=${phrase}&pageSize=100&sortBy=relevancy&apiKey=<API>`); //Place API key here
   console.log("The response is " + res);
   setHeadlines(res.data.articles);
   };
