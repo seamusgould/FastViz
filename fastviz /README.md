@@ -12,3 +12,5 @@ On the other hand, coronavirus sentiment has been fairly constant/stationary and
 Here are examples of some recent headlines (5/23/22):
 
 ![](https://github.com/seamusgould/FastViz/blob/main/fastviz/example.gif)
+
+To view this application on your local device, pull the repo, get an api key from the newsapi website, and type `yarn start`.
