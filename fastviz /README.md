@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="[demo.gif](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)" alt="animated" />
+</p>
+
 ![](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)
 # NewsVisualization
 
