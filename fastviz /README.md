@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="[demo.gif](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)" alt="animated" />
+  <img src="[demo.gif](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)" />
 </p>
 
 ![](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)
