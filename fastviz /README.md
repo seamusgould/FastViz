@@ -3,7 +3,6 @@
   <img src="https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif" />
 </p>
 
-![](https://github.com/seamusgould/FastViz/blob/main/fastviz/src/giphy.gif)
 # NewsVisualization
 
 This web application was made using react, javascript, recharts, and basic css and html.
@@ -16,6 +15,8 @@ On the other hand, coronavirus sentiment has been fairly constant/stationary and
 
 Here are examples of some recent headlines (5/23/22):
 
-![](https://github.com/seamusgould/FastViz/blob/main/fastviz/example.gif)
+<p align="center">
+  <img src="https://github.com/seamusgould/FastViz/blob/main/fastviz/example.gif" />
+</p>
 
 To view this application on your local device, pull the repo, get an api key from the newsapi website, and type `yarn start`.
